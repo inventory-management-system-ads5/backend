@@ -1,6 +1,8 @@
 package com.application.ims.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,17 +19,19 @@ public class Product {
     @Column(name = "id", unique = true)
     private Long id;
 
+    @Size(min = 2, max = 120)
     @Column(name = "product", nullable = false)
     private String name;
 
-    @Column(name = "description")
+    @Size(min = 10)
+    @Column(name = "description", nullable = true)
     private String description;
-
-    @Column(name = "unit_price", nullable = false)
-    private Double unitPrice;
 
     @Column(name = "stock_quantity", nullable = false)
     private Integer stockQuantity;
+
+    @Column(name = "unit_price", nullable = false)
+    private Double unitPrice;
 
     @ManyToOne
     @JoinColumn(name="category_id", nullable = false)
