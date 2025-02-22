@@ -1,6 +1,7 @@
 package com.application.ims.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,10 +20,12 @@ public class Category {
     @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name = "category", nullable = false)
+    @Size(min = 2, max = 50)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "description")
+    @Size(min = 10)
+    @Column(name = "description", nullable = false)
     private String description;
 
     @OneToMany(mappedBy = "category")

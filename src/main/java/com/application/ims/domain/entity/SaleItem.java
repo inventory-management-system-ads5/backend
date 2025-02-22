@@ -1,6 +1,7 @@
 package com.application.ims.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,11 +25,10 @@ public class SaleItem {
     private Double salePrice;
 
     @ManyToOne
-    @JoinColumn(name = "sale_id", nullable = false)
-    private Sale sale;
-
-    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
+    @ManyToOne
+    @JoinColumn(name = "sale_id", nullable = false)
+    private Sale sale;
 }

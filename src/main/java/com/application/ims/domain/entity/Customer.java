@@ -1,6 +1,8 @@
 package com.application.ims.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,17 +21,19 @@ public class Customer {
     @Column(name = "id", unique = true)
     private Long id;
 
+    @Size(min = 2, max = 120)
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "email", nullable = false)
+    @Email
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "contact", nullable = false)
-    private String contact;
+    @Column(name = "contact_info", nullable = false)
+    private String contactInfo;
 
     @Column(name = "is_active", nullable = false)
-    private boolean isActive;
+    private boolean isActive = true; // default true
 
     @OneToMany(mappedBy = "customer")
     private List<Sale> sales;
