@@ -1,6 +1,8 @@
 package com.application.ims.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,17 +21,15 @@ public class Supplier {
     @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name = "suplier", nullable = false)
+    @Size(min = 2, max = 120)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "email", nullable = false)
-    private String email;
+    @Column(name = "contact_info", nullable = false)
+    private String contactInfo;
 
-    @Column(name = "contact", nullable = false)
-    private String contact;
-
-    @Column(name = "status", nullable = false)
-    private boolean status;
+    @Column(name = "is_active", nullable = false)
+    private boolean isActive = true; // default to true
 
     @OneToMany(mappedBy = "supplier")
     private List<Product> products;
