@@ -1,8 +1,6 @@
 package com.application.ims.domain.dto.response;
 
-import com.application.ims.domain.dto.request.create.SaleRequestDto;
 import com.application.ims.domain.enums.SaleStatus;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,24 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 public class SaleResponseDto {
 
-    @NotNull
     private Long id;
-
-    @NotNull
-    private Double totalAmount;
-
-    @NotNull
-    private LocalDateTime createdAt;
-
-    @NotNull
-    private LocalDateTime updatedAt;
-
-    @NotNull
+    private Double total_amount;
+    private LocalDateTime created_at;
+    private LocalDateTime updated_at;
     private SaleStatus status;
-
-    @NotNull
     private Long customer_id;
+    private List<SaleItemResponseDto> sale_items;
 
-//    @NotNull
-//    private List<SaleItemResponseDto> sale_items;
 }

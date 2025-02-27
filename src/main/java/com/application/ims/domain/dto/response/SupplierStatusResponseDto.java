@@ -1,6 +1,5 @@
 package com.application.ims.domain.dto.response;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor@AllArgsConstructor
 public class SupplierStatusResponseDto {
 
-    @NotNull
-    private boolean isActive;
+    private boolean is_active;
 
 }
