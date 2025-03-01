@@ -18,6 +18,6 @@ public class UpdateUserRequestDto {
     private String password;
 
     @NotNull
-    private boolean is_admin;
+    private Boolean is_admin;
 
 }
