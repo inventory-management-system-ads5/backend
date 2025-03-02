@@ -25,7 +25,7 @@ public class UserController {
     }
 
     // POST method
-    @PostMapping("add") // http://localhost:8080/api/user/add/
+    @PostMapping("/add/") // http://localhost:8080/api/user/add/
     public UserResponseDto save(@RequestBody UserRequestDto userRequestDto) {
         return userService.save(userRequestDto);
 

@@ -41,7 +41,6 @@ public class CategoryServiceImpl  implements CategoryServiceInterface {
         categoryResponseDto.setDescription(savedCategory.getDescription());
 
         return categoryResponseDto;
-
     }
 
     // GET method implementation
@@ -62,12 +61,11 @@ public class CategoryServiceImpl  implements CategoryServiceInterface {
 
     // GET method implementation (list)
     @Override
-    public List<CategoryResponseDto> getCategorys() {
+    public List<CategoryResponseDto> getCategories() {
 
-        // fetching all existing categorys
-        List<Category> categorys = categoryRepository.findAll();
-        return categorys.stream().map(this::categoryResponseDtos).toList();
-
+        // fetching all existing categories
+        List<Category> categories = categoryRepository.findAll();
+        return categories.stream().map(this::categoryResponseDtos).toList();
     }
 
     private CategoryResponseDto categoryResponseDtos(Category category) {
@@ -79,7 +77,7 @@ public class CategoryServiceImpl  implements CategoryServiceInterface {
         return categoryResponseDto;
     }
 
-    // GET method implementation
+    // PUT method implementation
     @Override
     public CategoryResponseDto update(Long id, UpdateCategoryRequestDto categoryRequestDto) {
 

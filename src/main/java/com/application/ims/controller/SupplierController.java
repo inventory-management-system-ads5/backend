@@ -25,7 +25,7 @@ public class SupplierController {
     }
 
     // POST method
-    @PostMapping("add") // http://localhost:8080/api/supplier/add/
+    @PostMapping("/add/") // http://localhost:8080/api/supplier/add/
     public SupplierResponseDto save(@RequestBody SupplierRequestDto supplierRequestDto) {
         return supplierService.save(supplierRequestDto);
 

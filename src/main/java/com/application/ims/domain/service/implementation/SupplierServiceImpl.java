@@ -27,7 +27,7 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
     @Override
     public SupplierResponseDto save(SupplierRequestDto supplierRequestDto) {
 
-        // creating up a new supplier
+        // creating a new supplier
         Supplier supplier = new Supplier();
 
         // setting up the new supplier attributes
@@ -85,7 +85,7 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
         return supplierResponseDto;
     }
 
-    // GET method implementation
+    // PUT method implementation
     @Override
     public SupplierResponseDto update(Long id, UpdateSupplierRequestDto supplierRequestDto) {
 

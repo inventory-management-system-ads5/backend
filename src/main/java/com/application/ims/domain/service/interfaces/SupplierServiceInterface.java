@@ -16,4 +16,5 @@ public interface SupplierServiceInterface {
     SupplierResponseDto update(Long id, UpdateSupplierRequestDto supplierRequestDto);
     SupplierResponseDto updateStatus(Long id, UpdateSupplierStatusRequestDto supplierRequestDto);
     SupplierResponseDto delete(Long id);
+
 }

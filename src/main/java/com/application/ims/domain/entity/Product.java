@@ -20,7 +20,7 @@ public class Product {
     private Long id;
 
     @Size(min = 2, max = 120)
-    @Column(name = "product", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Size(min = 10)

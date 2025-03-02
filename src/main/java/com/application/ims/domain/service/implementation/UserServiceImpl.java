@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserServiceInterface {
     @Override
     public UserResponseDto save(UserRequestDto userRequestDto) {
 
-        // creating up a new user
+        // creating a new user
         User user = new User();
 
         // setting up the new user attributes
@@ -47,7 +47,6 @@ public class UserServiceImpl implements UserServiceInterface {
         userResponseDto.setIs_active(savedUser.isActive());
 
         return userResponseDto;
-
     }
 
     // GET method implementation
@@ -76,7 +75,6 @@ public class UserServiceImpl implements UserServiceInterface {
         // fetching all existing users
         List<User> users = userRepository.findAll();
         return users.stream().map(this::userResponseDtos).toList();
-
     }
 
     private UserResponseDto userResponseDtos(User user) {
@@ -91,7 +89,7 @@ public class UserServiceImpl implements UserServiceInterface {
         return userResponseDto;
     }
 
-    // GET method implementation
+    // PUT method implementation
     @Override
     public UserResponseDto update(Long id, UpdateUserRequestDto userRequestDto) {
 

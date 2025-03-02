@@ -9,7 +9,7 @@ import com.application.ims.domain.dto.request.update.UpdateCategoryRequestDto;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 
 @RestController
 @RequestMapping("/api/category/")
@@ -24,7 +24,7 @@ public class CategoryController {
     }
 
     // POST method
-    @PostMapping("add") // http://localhost:8080/api/category/add/
+    @PostMapping("/add/") // http://localhost:8080/api/category/add/
     public CategoryResponseDto save(@RequestBody CategoryRequestDto categoryRequestDto) {
         return categoryService.save(categoryRequestDto);
 
@@ -38,10 +38,10 @@ public class CategoryController {
         return categoryService.getCategory(id);
     }
 
-    // GET method (all categorys)
+    // GET method (all categories)
     @GetMapping // http://localhost:8080/api/category/
-    public List<CategoryResponseDto> getCategorys() {
-        return categoryService.getCategorys();
+    public List<CategoryResponseDto> getCategories() {
+        return categoryService.getCategories();
     }
 
     // PUT method
