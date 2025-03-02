@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor@AllArgsConstructor
 public class SupplierStatusResponseDto {
 
-    private boolean is_active;
+    private Boolean is_active;
 
 }

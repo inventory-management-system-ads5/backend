@@ -1,16 +1,15 @@
 package com.application.ims.domain.service.implementation;
 
-import com.application.ims.domain.dto.request.update.UpdateUserRequestDto;
-import com.application.ims.domain.dto.request.update.UpdateUserStatusRequestDto;
-import com.application.ims.domain.service.interfaces.UserServiceInterface;
 import org.springframework.stereotype.Service;
+import com.application.ims.domain.service.interfaces.UserServiceInterface;
 import com.application.ims.infrastructure.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.application.ims.domain.dto.response.UserResponseDto;
 import com.application.ims.domain.entity.User;
 import com.application.ims.domain.dto.request.create.UserRequestDto;
-import com.application.ims.domain.dto.response.UserResponseDto;
+import com.application.ims.domain.dto.request.update.UpdateUserRequestDto;
+import com.application.ims.domain.dto.request.update.UpdateUserStatusRequestDto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
