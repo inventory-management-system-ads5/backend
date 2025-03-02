@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class UpdateCustomerStatusDto {
+public class UpdateCustomerStatusRequestDto {
 
     @NotNull
-    private boolean is_active;
+    private Boolean is_active;
 
 }
