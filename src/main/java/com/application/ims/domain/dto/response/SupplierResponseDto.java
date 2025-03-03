@@ -12,5 +12,6 @@ public class SupplierResponseDto {
     private Long id;
     private String name;
     private String contact_info;
+    private Boolean is_active;
 
 }

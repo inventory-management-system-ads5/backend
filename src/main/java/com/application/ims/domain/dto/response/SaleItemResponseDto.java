@@ -13,5 +13,6 @@ public class SaleItemResponseDto {
     private Integer quantity;
     private Double salePrice;
     private Long product_id;
+    private Long sale_id;
 
 }

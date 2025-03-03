@@ -13,6 +13,7 @@ public class UserResponseDto {
     private String full_name;
     private String email;
     private String password;
-    private boolean is_admin;
+    private Boolean is_admin;
+    private Boolean is_active;
 
 }

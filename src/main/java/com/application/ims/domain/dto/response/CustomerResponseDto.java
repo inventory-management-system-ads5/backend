@@ -13,5 +13,6 @@ public class CustomerResponseDto {
     private String name;
     private String email;
     private String contact_info;
+    private Boolean is_active;
 
 }

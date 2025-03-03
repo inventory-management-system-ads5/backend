@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 public class UpdateSupplierStatusRequestDto {
 
     @NotNull
-    private boolean is_active;
+    private Boolean is_active;
 
 }
