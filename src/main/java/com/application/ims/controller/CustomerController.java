@@ -21,14 +21,14 @@ public class CustomerController {
     @Autowired
     public CustomerController(CustomerServiceInterface customerService) {
         this.customerService = customerService;
-
     }
 
     // POST method
     @PostMapping("/add/") // http://localhost:8080/api/customer/add/
-    public CustomerResponseDto save(@RequestBody CustomerRequestDto customerRequestDto) {
+    public CustomerResponseDto save(
+            @RequestBody CustomerRequestDto customerRequestDto
+    ) {
         return customerService.save(customerRequestDto);
-
     }
 
     // GET method (customer per id)
@@ -55,7 +55,7 @@ public class CustomerController {
     }
 
     // PATCH method
-    @PatchMapping("{id}/update-status/") // http://localhost:8080/api/customer/{id}/update-status/
+    @PatchMapping("/{id}/update-status/") // http://localhost:8080/api/customer/{id}/update-status/
     public CustomerResponseDto updateStatus(
             @PathVariable Long id,
             @RequestBody UpdateCustomerStatusRequestDto customerRequestDto
@@ -64,8 +64,10 @@ public class CustomerController {
     }
 
     // DELETE method
-    @DeleteMapping(" {id}/delete/") // http://localhost:8080/api/customer/{id}/delete/
-    public CustomerResponseDto delete(@PathVariable Long id) {
+    @DeleteMapping("/{id}/delete/") // http://localhost:8080/api/customer/{id}/delete/
+    public CustomerResponseDto delete(
+            @PathVariable Long id
+    ) {
         return customerService.delete(id);
     }
 

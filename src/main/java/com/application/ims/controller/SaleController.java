@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.application.ims.domain.service.interfaces.SaleServiceInterface;
 import com.application.ims.domain.dto.response.SaleResponseDto;
 import com.application.ims.domain.dto.request.create.SaleRequestDto;
-import com.application.ims.domain.dto.request.update.UpdateSaleStatusRequestDto;
 
 import java.util.List;
 

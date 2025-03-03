@@ -25,7 +25,9 @@ public class ProductController {
 
     // POST method
     @PostMapping("/add/") // http://localhost:8080/api/product/add/
-    public ProductResponseDto save(@RequestBody ProductRequestDto productRequestDto) {
+    public ProductResponseDto save(
+            @RequestBody ProductRequestDto productRequestDto
+    ) {
         return productService.save(productRequestDto);
     }
 
@@ -63,7 +65,10 @@ public class ProductController {
 
     // DELETE method
     @DeleteMapping("/{id}/delete/") // http://localhost:8080/api/product/{id}/delete/
-    public ProductResponseDto delete(@PathVariable Long id) {
+    public ProductResponseDto delete(
+            @PathVariable Long id
+    ) {
         return productService.delete(id);
     }
+
 }

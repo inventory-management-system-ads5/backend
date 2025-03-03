@@ -20,14 +20,14 @@ public class CategoryController {
     @Autowired
     public CategoryController(CategoryServiceInterface categoryService) {
         this.categoryService = categoryService;
-
     }
 
     // POST method
     @PostMapping("/add/") // http://localhost:8080/api/category/add/
-    public CategoryResponseDto save(@RequestBody CategoryRequestDto categoryRequestDto) {
+    public CategoryResponseDto save(
+            @RequestBody CategoryRequestDto categoryRequestDto
+    ) {
         return categoryService.save(categoryRequestDto);
-
     }
 
     // GET method (category per id)
@@ -54,9 +54,11 @@ public class CategoryController {
     }
 
     // DELETE method
-    @DeleteMapping(" {id}/delete/") // http://localhost:8080/api/category/{id}/delete/
-    public CategoryResponseDto delete(@PathVariable Long id) {
+    @DeleteMapping("/{id}/delete/") // http://localhost:8080/api/category/{id}/delete/
+    public CategoryResponseDto delete(
+            @PathVariable Long id
+    ) {
         return categoryService.delete(id);
     }
-    
+
 }

@@ -22,7 +22,6 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
         this.customerRepository = customerRepository;
     }
 
-
     // POST method implementation
     @Override
     public CustomerResponseDto save(CustomerRequestDto customerRequestDto) {
@@ -43,7 +42,6 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
         customerResponseDto.setName(savedCustomer.getName());
         customerResponseDto.setContact_info(savedCustomer.getContactInfo());
         customerResponseDto.setIs_active(savedCustomer.isActive());
-
 
         return customerResponseDto;
 
@@ -74,7 +72,6 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
         // fetching all existing customers
         List<Customer> customers = customerRepository.findAll();
         return customers.stream().map(this::customerResponseDtos).toList();
-
     }
 
     private CustomerResponseDto customerResponseDtos(Customer customer) {
@@ -148,4 +145,5 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
 
         return null;
     }
+
 }

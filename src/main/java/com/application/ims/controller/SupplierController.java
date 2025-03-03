@@ -28,7 +28,6 @@ public class SupplierController {
     @PostMapping("/add/") // http://localhost:8080/api/supplier/add/
     public SupplierResponseDto save(@RequestBody SupplierRequestDto supplierRequestDto) {
         return supplierService.save(supplierRequestDto);
-
     }
 
     // GET method (supplier per id)
@@ -64,8 +63,10 @@ public class SupplierController {
     }
 
     // DELETE method
-    @DeleteMapping(" {id}/delete/") // http://localhost:8080/api/supplier/{id}/delete/
-    public SupplierResponseDto delete(@PathVariable Long id) {
+    @DeleteMapping("/{id}/delete/") // http://localhost:8080/api/supplier/{id}/delete/
+    public SupplierResponseDto delete(
+            @PathVariable Long id
+    ) {
         return supplierService.delete(id);
     }
 

@@ -22,7 +22,6 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
         this.supplierRepository = supplierRepository;
     }
 
-
     // POST method implementation
     @Override
     public SupplierResponseDto save(SupplierRequestDto supplierRequestDto) {
@@ -43,9 +42,7 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
         supplierResponseDto.setContact_info(savedSupplier.getContactInfo());
         supplierResponseDto.setIs_active(savedSupplier.isActive());
 
-
         return supplierResponseDto;
-
     }
 
     // GET method implementation
@@ -72,7 +69,6 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
         // fetching all existing suppliers
         List<Supplier> suppliers = supplierRepository.findAll();
         return suppliers.stream().map(this::supplierResponseDtos).toList();
-
     }
 
     private SupplierResponseDto supplierResponseDtos(Supplier supplier) {
@@ -142,4 +138,5 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
 
         return null;
     }
+
 }

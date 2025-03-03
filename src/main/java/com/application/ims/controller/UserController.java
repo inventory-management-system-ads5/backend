@@ -21,14 +21,12 @@ public class UserController {
     @Autowired
     public UserController(UserServiceInterface userService) {
         this.userService = userService;
-
     }
 
     // POST method
     @PostMapping("/add/") // http://localhost:8080/api/user/add/
     public UserResponseDto save(@RequestBody UserRequestDto userRequestDto) {
         return userService.save(userRequestDto);
-
     }
 
     // GET method (user per id)
@@ -64,8 +62,10 @@ public class UserController {
     }
 
     // DELETE method
-    @DeleteMapping(" {id}/delete/") // http://localhost:8080/api/user/{id}/delete/
-    public UserResponseDto delete(@PathVariable Long id) {
+    @DeleteMapping("/{id}/delete/") // http://localhost:8080/api/user/{id}/delete/
+    public UserResponseDto delete(
+            @PathVariable Long id
+    ) {
         return userService.delete(id);
     }
 

@@ -21,7 +21,6 @@ public class CategoryServiceImpl  implements CategoryServiceInterface {
         this.categoryRepository = categoryRepository;
     }
 
-
     // POST method implementation
     @Override
     public CategoryResponseDto save(CategoryRequestDto categoryRequestDto) {
@@ -111,4 +110,5 @@ public class CategoryServiceImpl  implements CategoryServiceInterface {
 
         return null;
     }
+
 }

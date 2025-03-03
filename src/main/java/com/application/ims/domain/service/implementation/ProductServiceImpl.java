@@ -79,7 +79,6 @@ public class ProductServiceImpl implements ProductServiceInterface {
         Product product = productRepository.findById(id).orElseThrow(()
                 -> new RuntimeException("Product with id " + id + " not found"));
 
-
         ProductResponseDto productResponseDto = new ProductResponseDto();
         productResponseDto.setId(product.getId());
         productResponseDto.setName(product.getName());
@@ -99,7 +98,6 @@ public class ProductServiceImpl implements ProductServiceInterface {
         // fetching all existing products
         List<Product> products = productRepository.findAll();
         return products.stream().map(this::ProductResponseDtos).toList();
-
     }
 
     private ProductResponseDto ProductResponseDtos(Product product) {
@@ -130,7 +128,6 @@ public class ProductServiceImpl implements ProductServiceInterface {
         // fetching the supplier with the given id
         Supplier supplier = supplierRepository.findById(productRequestDto.getSupplier_id()).orElseThrow(()
                 -> new RuntimeException("Supplier with id " + productRequestDto.getSupplier_id() + " not found"));
-
 
         product.setName(productRequestDto.getName());
         product.setDescription(productRequestDto.getDescription());
@@ -190,4 +187,5 @@ public class ProductServiceImpl implements ProductServiceInterface {
 
         return null;
     }
+
 }

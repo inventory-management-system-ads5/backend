@@ -15,7 +15,6 @@ import com.application.ims.domain.entity.SaleItem;
 import com.application.ims.domain.entity.Product;
 import com.application.ims.domain.dto.request.create.SaleRequestDto;
 import com.application.ims.domain.dto.response.SaleItemResponseDto;
-import com.application.ims.domain.dto.request.update.UpdateSaleStatusRequestDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -123,7 +122,6 @@ public class SaleServiceImpl implements SaleServiceInterface {
         saleResponseDto.setSale_items(saleItemResponseDtos);
 
         return saleResponseDto;
-
     }
 
     // GET method implementation
@@ -167,7 +165,6 @@ public class SaleServiceImpl implements SaleServiceInterface {
         // fetching all existing sales
         List<Sale> sales = saleRepository.findAll();
         return sales.stream().map(this::saleResponseDtos).toList();
-
     }
 
     private SaleResponseDto saleResponseDtos(Sale sale) {
@@ -195,7 +192,6 @@ public class SaleServiceImpl implements SaleServiceInterface {
         saleResponseDto.setSale_items(saleItemResponseDtos);
 
         return saleResponseDto;
-
     }
 
     // PATCH method implementation
