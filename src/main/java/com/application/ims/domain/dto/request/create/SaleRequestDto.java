@@ -14,5 +14,5 @@ public class SaleRequestDto {
     private Long customer_id;
 
     @NotNull
-    private List<SaleRequestDto> sale_items;
+    private List<SaleItemRequestDto> sale_items;
 }
