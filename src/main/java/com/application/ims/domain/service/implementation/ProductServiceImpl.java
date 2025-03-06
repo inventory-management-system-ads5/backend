@@ -96,7 +96,7 @@ public class ProductServiceImpl implements ProductServiceInterface {
     public List<ProductResponseDto> getProducts() {
 
         // fetching all existing products
-        List<Product> products = productRepository.findAll();
+        List<Product> products = productRepository.findAllByIdAsc();
         return products.stream().map(this::ProductResponseDtos).toList();
     }
 

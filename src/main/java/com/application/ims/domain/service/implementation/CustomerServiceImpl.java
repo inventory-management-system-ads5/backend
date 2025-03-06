@@ -70,7 +70,7 @@ public class CustomerServiceImpl implements CustomerServiceInterface {
     public List<CustomerResponseDto> getCustomers() {
 
         // fetching all existing customers
-        List<Customer> customers = customerRepository.findAll();
+        List<Customer> customers = customerRepository.findAllByIdAsc();
         return customers.stream().map(this::customerResponseDtos).toList();
     }
 

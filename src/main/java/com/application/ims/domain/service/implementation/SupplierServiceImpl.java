@@ -67,7 +67,7 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
     public List<SupplierResponseDto> getSuppliers() {
 
         // fetching all existing suppliers
-        List<Supplier> suppliers = supplierRepository.findAll();
+        List<Supplier> suppliers = supplierRepository.findAllByIdAsc();
         return suppliers.stream().map(this::supplierResponseDtos).toList();
     }
 
