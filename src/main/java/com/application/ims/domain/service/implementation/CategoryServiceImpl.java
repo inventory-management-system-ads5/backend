@@ -63,7 +63,7 @@ public class CategoryServiceImpl  implements CategoryServiceInterface {
     public List<CategoryResponseDto> getCategories() {
 
         // fetching all existing categories
-        List<Category> categories = categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAllByIdAsc();
         return categories.stream().map(this::categoryResponseDtos).toList();
     }
 

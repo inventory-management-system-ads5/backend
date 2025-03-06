@@ -163,7 +163,7 @@ public class SaleServiceImpl implements SaleServiceInterface {
     public List<SaleResponseDto> getSales() {
 
         // fetching all existing sales
-        List<Sale> sales = saleRepository.findAll();
+        List<Sale> sales = saleRepository.findAllByIdAsc();
         return sales.stream().map(this::saleResponseDtos).toList();
     }
 
