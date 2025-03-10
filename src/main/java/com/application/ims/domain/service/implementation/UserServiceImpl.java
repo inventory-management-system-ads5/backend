@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserServiceInterface {
     public List<UserResponseDto> getUsers() {
 
         // fetching all existing users
-        List<User> users = userRepository.findAll();
+        List<User> users = userRepository.findAllByIdAsc();
         return users.stream().map(this::userResponseDtos).toList();
     }
 
