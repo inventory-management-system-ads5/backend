@@ -8,8 +8,6 @@ import lombok.*;
 @Entity
 @Table(name="tb_logins")
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Login {
@@ -24,7 +22,7 @@ public class Login {
     private String username;
 
     @Email
-    @Column(name = "email ", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Size(min = 8, max = 64)
