@@ -1,5 +1,6 @@
 package com.application.ims.domain.service.implementation;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.application.ims.domain.service.interfaces.UserServiceInterface;
 import com.application.ims.infrastructure.UserRepository;
@@ -16,10 +17,12 @@ import java.util.List;
 public class UserServiceImpl implements UserServiceInterface {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // POST method implementation
@@ -32,7 +35,7 @@ public class UserServiceImpl implements UserServiceInterface {
         // setting up the new user attributes
         user.setFullName(userRequestDto.getFull_name());
         user.setEmail(userRequestDto.getEmail());
-        user.setPassword(userRequestDto.getPassword());
+        user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
         user.setAdmin(userRequestDto.getIs_admin());
         user.setActive(true);
 
@@ -42,7 +45,6 @@ public class UserServiceImpl implements UserServiceInterface {
         userResponseDto.setId(savedUser.getId());
         userResponseDto.setFull_name(savedUser.getFullName());
         userResponseDto.setEmail(savedUser.getEmail());
-        userResponseDto.setPassword(savedUser.getPassword());
         userResponseDto.setIs_admin(savedUser.isAdmin());
         userResponseDto.setIs_active(savedUser.isActive());
 
@@ -61,7 +63,6 @@ public class UserServiceImpl implements UserServiceInterface {
         userResponseDto.setId(user.getId());
         userResponseDto.setFull_name(user.getFullName());
         userResponseDto.setEmail(user.getEmail());
-        userResponseDto.setPassword(user.getPassword());
         userResponseDto.setIs_admin(user.isAdmin());
         userResponseDto.setIs_active(user.isActive());
 
@@ -82,7 +83,6 @@ public class UserServiceImpl implements UserServiceInterface {
         userResponseDto.setId(user.getId());
         userResponseDto.setFull_name(user.getFullName());
         userResponseDto.setEmail(user.getEmail());
-        userResponseDto.setPassword(user.getPassword());
         userResponseDto.setIs_admin(user.isAdmin());
         userResponseDto.setIs_active(user.isActive());
 
@@ -99,7 +99,7 @@ public class UserServiceImpl implements UserServiceInterface {
 
         user.setFullName(userRequestDto.getFull_name());
         user.setEmail(userRequestDto.getEmail());
-        user.setPassword(userRequestDto.getPassword());
+        user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
         user.setAdmin(userRequestDto.getIs_admin());
 
         // updating the user with new given data
@@ -109,7 +109,6 @@ public class UserServiceImpl implements UserServiceInterface {
         userResponseDto.setId(updatedUser.getId());
         userResponseDto.setFull_name(user.getFullName());
         userResponseDto.setEmail(user.getEmail());
-        userResponseDto.setPassword(user.getPassword());
         userResponseDto.setIs_admin(user.isAdmin());
         userResponseDto.setIs_active(user.isActive());
 
@@ -133,7 +132,6 @@ public class UserServiceImpl implements UserServiceInterface {
         userResponseDto.setId(updatedUser.getId());
         userResponseDto.setFull_name(user.getFullName());
         userResponseDto.setEmail(user.getEmail());
-        userResponseDto.setPassword(user.getPassword());
         userResponseDto.setIs_admin(user.isAdmin());
         userResponseDto.setIs_active(user.isActive());
 
