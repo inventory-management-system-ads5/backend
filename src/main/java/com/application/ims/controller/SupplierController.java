@@ -7,6 +7,11 @@ import com.application.ims.domain.dto.response.SupplierResponseDto;
 import com.application.ims.domain.dto.request.create.SupplierRequestDto;
 import com.application.ims.domain.dto.request.update.UpdateSupplierRequestDto;
 import com.application.ims.domain.dto.request.update.UpdateSupplierStatusRequestDto;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import java.io.StringWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import java.util.List;
 
@@ -43,6 +48,40 @@ public class SupplierController {
     public List<SupplierResponseDto> getSuppliers() {
         return supplierService.getSuppliers();
     }
+
+    // GET method (export all suppliers to csv file )
+    @GetMapping("/export/csv/")
+    public ResponseEntity<String> exportSuppliersToCsv() {
+
+        List<SupplierResponseDto> suppliers = supplierService.getSuppliers();
+
+        StringWriter writer = new StringWriter();
+        // CSV header
+        writer.append("ID,Name,Contact Info,Status\n");
+
+        // CSV data
+        for (SupplierResponseDto supplier : suppliers) {
+            writer.append(String.format("%d,%s,%s,%s\n",
+                    supplier.getId(),
+                    supplier.getName(),
+                    supplier.getContact_info(),
+                    supplier.getIs_active() ? "Active" : "Inactive"
+            ));
+        }
+
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
+        String fileName = String.format("suppliers_export_%s.csv", timestamp);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + fileName);
+        headers.add(HttpHeaders.CONTENT_TYPE, "text/csv");
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .body(writer.toString());
+    }
+
 
     // PUT method
     @PutMapping("/{id}/update/") // http://localhost:8080/api/supplier/{id}/update/
