@@ -1,5 +1,6 @@
 package com.application.ims.domain.service.implementation;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.application.ims.domain.service.interfaces.SupplierServiceInterface;
 import com.application.ims.infrastructure.SupplierRepository;
@@ -128,7 +129,7 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
 
     // DELETE method implementation
     @Override
-    public SupplierResponseDto delete(Long id) {
+    public ResponseEntity<Void> delete(Long id) {
 
         // fetching the supplier with the given id
         Supplier supplier = supplierRepository.findById(id).orElseThrow(()
@@ -136,7 +137,7 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
 
         supplierRepository.delete(supplier);
 
-        return null;
+        return ResponseEntity.noContent().build();
     }
 
 }
