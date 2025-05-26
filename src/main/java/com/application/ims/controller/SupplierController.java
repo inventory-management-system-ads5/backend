@@ -103,7 +103,7 @@ public class SupplierController {
 
     // DELETE method
     @DeleteMapping("/{id}/delete/") // http://localhost:8080/api/supplier/{id}/delete/
-    public SupplierResponseDto delete(
+    public ResponseEntity<Void> delete(
             @PathVariable Long id
     ) {
         return supplierService.delete(id);

@@ -4,6 +4,7 @@ import com.application.ims.domain.dto.request.create.SupplierRequestDto;
 import com.application.ims.domain.dto.request.update.UpdateSupplierRequestDto;
 import com.application.ims.domain.dto.request.update.UpdateSupplierStatusRequestDto;
 import com.application.ims.domain.dto.response.SupplierResponseDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,6 @@ public interface SupplierServiceInterface {
     List<SupplierResponseDto> getSuppliers();
     SupplierResponseDto update(Long id, UpdateSupplierRequestDto supplierRequestDto);
     SupplierResponseDto updateStatus(Long id, UpdateSupplierStatusRequestDto supplierRequestDto);
-    SupplierResponseDto delete(Long id);
+    ResponseEntity<Void> delete(Long id);
 
 }
