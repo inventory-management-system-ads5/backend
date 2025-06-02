@@ -1,5 +1,7 @@
 package com.application.ims.domain.service.implementation;
 
+import com.application.ims.domain.specification.SupplierSpecification;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.application.ims.domain.service.interfaces.SupplierServiceInterface;
@@ -12,6 +14,7 @@ import com.application.ims.domain.dto.request.update.UpdateSupplierRequestDto;
 import com.application.ims.domain.dto.request.update.UpdateSupplierStatusRequestDto;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SupplierServiceImpl implements SupplierServiceInterface {
@@ -63,13 +66,20 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
         return supplierResponseDto;
     }
 
-    // GET method implementation (list)
+    // GET methodimplementation (list per specification)
+    @Override
+    public List<SupplierResponseDto> searchSuppliers(String searchTerm, Boolean isActive) {
+        Specification<Supplier> spec = SupplierSpecification.getSuppliersByCriteria(searchTerm, isActive);
+        List<Supplier> suppliers = supplierRepository.findAll(spec);
+        return suppliers.stream().map(this::supplierResponseDtos).collect(Collectors.toList());
+    }
+
+    // GET method implementation (list of all suppliers)
     @Override
     public List<SupplierResponseDto> getSuppliers() {
 
         // fetching all existing suppliers
-        List<Supplier> suppliers = supplierRepository.findAllByIdAsc();
-        return suppliers.stream().map(this::supplierResponseDtos).toList();
+        return searchSuppliers(null, null);
     }
 
     private SupplierResponseDto supplierResponseDtos(Supplier supplier) {
@@ -139,5 +149,4 @@ public class SupplierServiceImpl implements SupplierServiceInterface {
 
         return ResponseEntity.noContent().build();
     }
-
 }
