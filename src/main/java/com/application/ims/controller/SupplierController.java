@@ -45,8 +45,11 @@ public class SupplierController {
 
     // GET method (all suppliers)
     @GetMapping // http://localhost:8080/api/supplier/
-    public List<SupplierResponseDto> getSuppliers() {
-        return supplierService.getSuppliers();
+    public List<SupplierResponseDto> getSuppliers(
+            @RequestParam(required = false) String searchTerm,
+            @RequestParam(required = false) Boolean isActive
+    ) {
+        return supplierService.searchSuppliers(searchTerm, isActive);
     }
 
     // GET method (export all suppliers to csv file )

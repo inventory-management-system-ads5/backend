@@ -17,5 +17,5 @@ public interface SupplierServiceInterface {
     SupplierResponseDto update(Long id, UpdateSupplierRequestDto supplierRequestDto);
     SupplierResponseDto updateStatus(Long id, UpdateSupplierStatusRequestDto supplierRequestDto);
     ResponseEntity<Void> delete(Long id);
-
+    List<SupplierResponseDto> searchSuppliers(String searchTerm, Boolean isActive);
 }
